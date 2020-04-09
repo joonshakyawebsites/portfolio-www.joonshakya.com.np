@@ -479,6 +479,9 @@
     <script>
         var Loaded = false;
 
+        var navDown = document.querySelector("nav");
+        navDown.classList.toggle("hidden");
+
         function initAfterPreloader() {
             // Initialize particles-ja
             setTimeout(function () {
@@ -499,8 +502,7 @@
             loader.className += " hidden";
             var loaderCard = document.querySelector(".cardhold");
             loaderCard.className += " go-up";
-            var navDown = document.querySelector("nav");
-            navDown.className += " shown";
+            navDown.classList.toggle("hidden");
 
             // Initialize the animations
             var animate = document.querySelectorAll(".wait");

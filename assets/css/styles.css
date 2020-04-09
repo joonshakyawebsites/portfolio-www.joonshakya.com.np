@@ -16,11 +16,11 @@ body {
           animation-fill-mode: forwards;
 }
 
-nav.shown {
-  -webkit-animation: move-down 0.75s 0.85s cubic-bezier(0.145, 0.865, 0.57, 0.94);
-          animation: move-down 0.75s 0.85s cubic-bezier(0.145, 0.865, 0.57, 0.94);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+nav.hidden {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 @-webkit-keyframes move-up {
@@ -49,28 +49,6 @@ nav.shown {
   }
 }
 
-@-webkit-keyframes move-down {
-  50% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes move-down {
-  50% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
 @-webkit-keyframes wipe {
   50% {
     -webkit-transform: translateY(0);
@@ -96,12 +74,12 @@ nav.shown {
 }
 
 nav {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
   opacity: .95;
   background: -webkit-gradient(linear, left top, right top, from(#3498db), to(#8e44ad));
   background: linear-gradient(90deg, #3498db, #8e44ad);
   font-family: 'Product Sans Bold', sans-serif;
+  -webkit-transition: all 0.375s 1.25s cubic-bezier(0.145, 0.865, 0.57, 0.94);
+  transition: all 0.375s 1.25s cubic-bezier(0.145, 0.865, 0.57, 0.94);
   /* font-family: 'Baloo Bhai', sans-serif; */
 }
 

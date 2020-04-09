@@ -14,9 +14,9 @@ body {
     animation-fill-mode: forwards;
 }
 
-nav.shown {
-    animation: move-down .75s .85s cubic-bezier(0.145, 0.865, 0.570, 0.940);
-    animation-fill-mode: forwards;
+nav.hidden {
+    transform: translateY(-100%);
+    transition: all .2s;
 }
 
 @keyframes move-up {
@@ -28,16 +28,6 @@ nav.shown {
     100% {
         opacity: 0;
         transform: translateY(-30vh) scale(1.25);
-    }
-}
-
-@keyframes move-down {
-    50% {
-        transform: translateY(-100%);
-    }
-
-    100% {
-        transform: translateY(0);
     }
 }
 
@@ -53,10 +43,10 @@ nav.shown {
 }
 
 nav {
-    transform: translateY(-100%);
     opacity: .95;
     background: $gradient;
     font-family: 'Product Sans Bold', sans-serif;
+    transition: all .375s 1.25s cubic-bezier(0.145, 0.865, 0.570, 0.940);
     /* font-family: 'Baloo Bhai', sans-serif; */
 }
 
