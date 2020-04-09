@@ -16,7 +16,7 @@ body {
 
 nav.hidden {
     transform: translateY(-100%);
-    transition: all .2s;
+    transition: all 0s;
 }
 
 @keyframes move-up {
