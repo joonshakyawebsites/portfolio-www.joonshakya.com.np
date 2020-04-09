@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#000000">
+  <meta charset="utf-8">
+  <title>3D SHM Visualization - Joon Shakya</title>
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="3D SHM Visualization - Joon Shakya" />
+  <meta property="og:description" content="This is a 3D visualization of simple harmonic motion coded by Joon Shakya" />
+  <meta property="og:image" content="https://www.joonshakya.com.np/assets/p5/SHM/thumbnail.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:url" content="https://www.joonshakya.com.np/assets/p5/SHM/index.html" />
+  <meta property="fb:app_id" content="1265498347173300" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="icon" type="image/gif" href="animated_favicon1.gif" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <script language="javascript" type="text/javascript" src="./js/p5/p5.min-master-5-21-19.js"></script>
+  <script language="javascript" type="text/javascript" src="./js/p5/p5.dom.min.js"></script>
+
+  <!-- <script language="javascript" type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.min.js"></script> -->
+  <!-- <script language="javascript" type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.dom.min.js"></script> -->
+
+  <script language="javascript" type="text/javascript" src="./js/p5//p5.easycam.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body oncontextmenu="return false;">
+
+  <div id="HUD">
+    <table>
+      <tr>
+        <td>Coded by</td>
+        <td class="center"><a href="http://www.joonshakya.com.np" class="link-to" target="_blank">Joon Shakya</a></td>
+      </tr>
+      <tr>
+        <td>Speed</td>
+        <td>
+          <div class="drop">
+            <select id="speedSelector" class="button">
+              <option value="0.25">Very Slow</option>
+              <option value="0.5">Slow</option>
+              <option value="1" selected>Normal</option>
+              <option value="2">Fast</option>
+              <option value="4">Very Fast</option>
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Extra info.</td>
+        <td>
+          <div class="drop">
+            <select id="infoSelector" class="button">
+              <option value="show" selected>Show</option>
+              <option value="hide">Hide</option>
+            </select>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>Auto animate</td>
+        <td>
+          <button onclick="kamGara()" class="button" id="autoAnimBtn">Pause</button>
+        </td>
+      </tr>
+    </table>
+    <div id="toggleHUD">
+      <div id="toggleArrow" class="button" onclick="toggleHUD()">Hide HUD ▲</div>
+      <div id="fpsCount"></div>
+    </div>
+  </div>
+  <script language="javascript" type="text/javascript" src="./js/p5/sketch.js"></script>
+  <script>
+    var HUDscreen = document.getElementById('HUD');
+    var toggleArrow = document.getElementById('toggleArrow');
+
+    function kamGara() {
+      autoAnimBtn.classList.toggle('false');
+      if (autoAnimBtn.innerHTML == "Pause") {
+        autoAnimBtn.innerHTML = "Play";
+      } else {
+        autoAnimBtn.innerHTML = "Pause";
+      }
+    }
+
+    function toggleHUD() {
+      HUDscreen.classList.toggle('hidden');
+      if (toggleArrow.innerHTML == "Hide HUD ▲") {
+        toggleArrow.innerHTML = "Show HUD ▼";
+      } else {
+        toggleArrow.innerHTML = "Hide HUD ▲";
+      }
+    }
+  </script>
+</body>
+
+</html>

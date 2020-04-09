@@ -1,0 +1,396 @@
+$gradient: linear-gradient(90deg, #3498db, #8e44ad);
+
+body {
+    font-family: 'Product Sans', sans-serif;
+}
+
+.cardhold.go-up {
+    animation: move-up .45s ease-in;
+    animation-fill-mode: forwards;
+}
+
+.loader.hidden {
+    animation: wipe .9s .2s cubic-bezier(0.145, 0.865, 0.570, 0.940);
+    animation-fill-mode: forwards;
+}
+
+nav.shown {
+    animation: move-down .75s .85s cubic-bezier(0.145, 0.865, 0.570, 0.940);
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-up {
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-30vh) scale(1.25);
+    }
+}
+
+@keyframes move-down {
+    50% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes wipe {
+    50% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+        visibility: hidden;
+    }
+}
+
+nav {
+    transform: translateY(-100%);
+    opacity: .95;
+    background: $gradient;
+    font-family: 'Product Sans Bold', sans-serif;
+    /* font-family: 'Baloo Bhai', sans-serif; */
+}
+
+nav .nav-wrapper {
+    background: $gradient;
+}
+
+nav .nav-wrapper ul li {
+    display: flex;
+}
+
+nav .nav-wrapper ul li a {
+    font-size: 24px;
+    padding: 0 22px;
+}
+
+nav .nav-wrapper ul li a:hover {
+    background: #ffffff25;
+}
+
+nav .sidenav-trigger {
+    transform: translateX(-16px);
+    padding: 0 16px;
+    transition: all .2s;
+}
+
+nav .sidenav-trigger:hover {
+    background: #ffffff25;
+}
+
+.sidenav a {
+    transition: all .2s;
+}
+
+.top-button {
+    position: fixed;
+    bottom: 4vh;
+    right: 4vh;
+}
+
+.brand-logo {
+    padding: 0 32px !important;
+    transition: all .2s;
+}
+
+.brand-logo:hover {
+    background: #ffffff25;
+}
+
+.intro {
+    padding-top: 30vh;
+    transform: translateY(-64px);
+    width: 100%;
+    min-height: 120vh;
+    background: $gradient;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 9vw), 0 100%);
+}
+
+#particles-js {
+    opacity: 0;
+    position: absolute;
+    transform: translateY(-30vh);
+    right: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+}
+
+#particles-js.animated {
+    animation: show 1s 5s;
+    animation-fill-mode: forwards;
+}
+
+#particles-js canvas {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    height: 100vmax !important;
+    z-index: 0;
+}
+
+.intro-photo-and-text {
+    padding: 0 10%;
+    min-height: 64vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transform: translateY(-10vh);
+}
+
+/* Animatins */
+
+@keyframes photo-holder-grow {
+    100% {
+        height: 230px;
+        width: 230px;
+    }
+}
+
+@keyframes photo-grow {
+    100% {
+        height: 200px;
+        width: 200px;
+    }
+}
+
+@keyframes intro-text-1-grow {
+    100% {
+        font-size: 1.6em;
+    }
+}
+
+@keyframes intro-text-2-grow {
+    100% {
+        font-size: 1em;
+    }
+}
+
+@keyframes appear {
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        min-width: 30%;
+    }
+}
+
+@media all and (min-width: 721px) {
+    @keyframes appear {
+        0% {
+            opacity: 0;
+            flex-basis: 0%;
+        }
+
+        50% {
+            opacity: 0;
+            flex-basis: 50%;
+        }
+
+        100% {
+            opacity: 1;
+            flex-basis: 50%;
+            min-width: 30%;
+        }
+    }
+}
+
+@keyframes show {
+    100% {
+        opacity: 1;
+    }
+}
+
+.intro-photo-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+}
+
+.photo-holder-container {
+    height: 240px;
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-holder {
+    z-index: 1;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    height: 0px;
+    width: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-holder.animated {
+    animation: photo-holder-grow .5s 1.8s;
+    animation-fill-mode: forwards;
+}
+
+.joon-photo {
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+}
+
+.joon-photo.animated {
+    animation: photo-grow .5s 2.6s;
+    animation-fill-mode: forwards;
+}
+
+.intro-description {
+    opacity: 0;
+    text-align: center;
+    padding: 16px 0;
+    /* font-family: 'Quicksand', sans-serif; */
+    color: #fff;
+    flex-basis: 0%;
+}
+
+.intro-description.animated {
+    animation: appear 1.75s 3.4s;
+    animation-fill-mode: forwards;
+}
+
+.intro-text-1 {
+    font-size: 1rem;
+}
+
+.intro-text-1.animated {
+    animation: intro-text-1-grow .5s 3.4s;
+    animation-fill-mode: forwards;
+}
+
+.intro-text-2 {
+    font-size: 1rem;
+}
+
+.intro-text-2.animated {
+    animation: intro-text-2-grow .5s 3.4s;
+    animation-fill-mode: forwards;
+}
+
+@media all and (max-width: 720px) {
+    .intro-description {
+        flex-basis: 100%;
+    }
+}
+
+.button-holder {
+    opacity: 0;
+}
+
+.button-holder.animated {
+    animation: appear 1s 3.8s;
+    animation-fill-mode: forwards;
+}
+
+.button-holder a:hover {
+    background: #ffffff25;
+}
+
+.projects-card-link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.projects-card-link a {
+    margin: 4px;
+}
+
+.col {
+    transition: all .2s;
+}
+
+.container {
+    transition: all .2s;
+}
+
+.card-content h5 {
+    margin-top: 0;
+}
+
+.section-heading {
+    font-size: 2.25em;
+    padding: .125em .25em;
+    border-bottom: .06em solid #000;
+}
+
+.section-follow {
+    margin: 10vh 0;
+    background: $gradient;
+    transform: skewY(2deg);
+}
+
+.section-follow .container {
+    transform: skewY(-2deg);
+}
+
+.section-follow .fa-4x {
+    padding: 10px 10px;
+    transition: all .2s;
+    border-radius: 12px;
+    margin: 0 4px;
+}
+
+.youtube-link:hover {
+    color: #ff0000;
+    background: #fff;
+}
+
+.github-link:hover {
+    color: #333;
+    background: #fff;
+}
+
+.gmail-link:hover {
+    color: #0072C6;
+    background: #fff;
+}
+
+#contact {
+    margin-bottom: 10vh;
+}
+
+#contact .card-panel p {
+    margin: 0;
+}
+
+.page-footer {
+    background: transparent;
+}
+
+.footer-copyright {
+    background: $gradient;
+}
+
+.footer-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-flex>* {
+    margin: 8px;
+    color: #fff;
+}

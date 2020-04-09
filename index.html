@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadatas -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#6671c6">
+    <title>Joon Shakya's website</title>
+    <meta property="og:type" content="profile" />
+    <meta property="og:image" content="https://www.joonshakya.com.np/Joon.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:title" content="Joon Shakya's website" />
+    <meta property="og:description" content="Made by Joon Shakya" />
+    <meta property="og:url" content="https://www.joonshakya.com.np/" />
+    <meta property="fb:app_id" content="1265498347173300" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="icon" type="image/gif" href="animated_favicon1.gif" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <style>
+        /* CSS for preloader */
+        .loader {
+            background: -webkit-gradient(linear, left top, right top, from(#2b81bb), to(#72368b));
+            background: linear-gradient(90deg, #2b81bb, #72368b);
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .loader>.cardhold {
+            height: 64px;
+            width: 64px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 50%;
+            -webkit-box-shadow: 4px 4px 12px #00000088;
+            box-shadow: 4px 4px 12px #00000088;
+            -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+            animation: grow .5s;
+        }
+
+        @keyframes grow {
+            0% {
+                transform: scale(0);
+            }
+
+            100% {
+                transform: scale(1.25);
+            }
+        }
+
+        .lds-hourglass {
+            display: inline-block;
+            position: relative;
+            width: 64px;
+            height: 64px;
+        }
+
+        .lds-hourglass:after {
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            width: 0;
+            height: 0;
+            margin: 6px;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 26px solid #777;
+            border-color: #777 transparent #777 transparent;
+            -webkit-animation: lds-hourglass 1.2s infinite;
+            animation: lds-hourglass 1.2s infinite;
+        }
+
+        @-webkit-keyframes lds-hourglass {
+            0% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            50% {
+                -webkit-transform: rotate(900deg);
+                transform: rotate(900deg);
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            100% {
+                -webkit-transform: rotate(1800deg);
+                transform: rotate(1800deg);
+            }
+        }
+
+        @keyframes lds-hourglass {
+            0% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0);
+                -webkit-animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            50% {
+                -webkit-transform: rotate(900deg);
+                transform: rotate(900deg);
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+                animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+
+            100% {
+                -webkit-transform: rotate(1800deg);
+                transform: rotate(1800deg);
+            }
+        }
+    </style> <!-- PreLoader CSS ends -->
+</head>
+
+<body class="grey lighten-3">
+
+    <!-- PreLoader -->
+    <div class="loader">
+        <div class="cardhold">
+            <div class="lds-hourglass"></div>
+        </div>
+    </div> <!-- Preloader ends -->
+
+    <!-- Navigation -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#top" class="brand-logo waves-effect waves-light">Joon<span
+                            style="color: transparent;">i</span>Shakya</a>
+                </div>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <div class="container">
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#top" class="waves-effect waves-light">Home</a></li>
+                        <li><a href="#projects" class="waves-effect waves-light">My Projects</a></li>
+                        <li><a href="#contact" class="waves-effect waves-light">Contact Me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <div class="subheader teal-text" style="padding: 0 12px">
+                Navigation
+            </div>
+        </li>
+        <li><a class="sidenav-close" href="#top">Home</a></li>
+        <li><a class="sidenav-close" href="#projects">My Projects</a></li>
+        <li><a class="sidenav-close" href="#contact">Contact Me</a></li>
+    </ul>
+    <!-- Navigation ends -->
+
+    <!-- Back to top -->
+    <div id="top" class="scrollspy"></div>
+
+    <!-- Full page intro -->
+    <section class="intro">
+        <div class="intro-photo-and-text">
+            <div id="particles-js" class="wait"></div>
+            <div class="intro-photo-side">
+                <div class="photo-holder-container">
+                    <div class="photo-holder waves-light waves-effect z-depth-2 hoverable wait">
+                        <img class="joon-photo wait" src="Joon.png" alt="profile-pic">
+                    </div>
+                </div>
+            </div>
+            <div class="intro-description flow-text wait">
+                <p class="intro-text-1 wait" style="line-height: 1.15;">Hi there, I
+                    am<br><strong>Joon Shakya</strong></p>
+                <p class="intro-text-2 wait" style="line-height: 1.15;">Welcome to my website</p>
+            </div>
+        </div>
+        <div class="button-holder center-align wait" style="position: relative; bottom: 10vh;">
+            <a class="btn-flat waves-effect waves-light white-text" href="#projects">
+                <i class="large material-icons left">keyboard_arrow_down</i>
+                Check Out My Projects
+            </a>
+        </div>
+    </section> <!-- Full page intro ends -->
+
+    <!-- Section: My projects -->
+    <section id="projects" class="section scrollspy">
+        <div class="container">
+            <div class="flow-text center-align">
+                <spam class="section-heading">My Projects</spam>
+                <br><br>
+            </div>
+            <div class="row">
+
+                <!-- SHM -->
+                <div class="col s12 m8 offset-m2 l6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="./assets/images/SHM.gif" alt="SHM">
+                        </div>
+                        <div class="card-content">
+                            <h5>
+                                3D SHM visualizetion in P5JS + WebGL (JavaScript)
+                            </h5>
+                            <p>
+                                This is a 3D Simple Harmonic Motion Visualization made by me using
+                                <strong>P5JS + WebGL</strong>
+                                (a JavaScript library).
+                            </p>
+                        </div>
+                        <div class="card-action projects-card-link">
+                            <a href="./assets/p5/SHM/index.html" class="btn" target="_blank"><i
+                                    class="material-icons left">play_arrow</i>
+                                Try It
+                            </a>
+                            <a href="https://github.com/joonshakya/SHM" class="btn" target="_blank"><i
+                                    class="material-icons left">code</i>View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manim -->
+                <div class="col s12 m8 offset-m2 l6">
+                    <div class="card hoverable">
+                        <div class="card-image" style="overflow: hidden; padding-top: 56.25%; position: relative;">
+                            <iframe style="border: 0; height: 100%; left: 0; position: absolute; top: 0; width: 100%;"
+                                src="https://www.youtube.com/embed/y6H4Z_wNjrU" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>Embedded YouTube Video</iframe> <span class="card-title"></span>
+                        </div>
+                        <div class="card-content">
+                            <h5>
+                                Manim Test (Python)
+                            </h5>
+                            <p>
+                                This is a YouTube video visualizing Maths made by me using <strong>Manim</strong>
+                                (a Python 3 Library)
+                            </p>
+                        </div>
+                        <div class="card-action projects-card-link">
+                            <a href="https://www.youtube.com/channel/UCyqQYD6TlPSjasljdaY9eSA?sub_confirmation=1"
+                                class="btn" target="_blank"><i class="fab fa-youtube left"></i>SUBSCRIBE</a>
+                            <a href="https://github.com/joonshakya/FirstManimProject" class="btn" target="_blank"><i
+                                    class="material-icons left">code</i>View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- ./row -->
+            <div class="row">
+
+                <!-- Refration -->
+                <div class="col s12 m8 offset-m2 l6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="./assets/images/refract.gif" alt="refraction">
+                        </div>
+                        <div class="card-content">
+                            <h5>
+                                Refraction Calculator in P5JS (JavaScript)
+                            </h5>
+                            <p>
+                                This is a refraction and total internal reflection calculator made by me using
+                                <strong>P5JS</strong>
+                                (a JavaScript library).
+                            </p>
+                        </div>
+                        <div class="card-action projects-card-link">
+                            <a href="./assets/p5/refraction/index.html" class="btn" target="_blank"><i
+                                    class="material-icons left">play_arrow</i>
+                                Try It
+                            </a>
+                            <a href="https://github.com/joonshakya/Refraction" class="btn" target="_blank"><i
+                                    class="material-icons left">code</i>View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pixel -->
+                <div class="col s12 m8 offset-m2 l6">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src="./assets/images/pixel.gif" alt="refraction">
+                        </div>
+                        <div class="card-content">
+                            <h5>
+                                Visualizing Pixel in P5JS (JavaScript)
+                            </h5>
+                            <p>
+                                This is a pixels visualizetion made by me using
+                                <strong>P5JS</strong>
+                                (a JavaScript library).
+                            </p>
+                        </div>
+                        <div class="card-action projects-card-link">
+                            <a href="./assets/p5/pixel/index.html" class="btn" target="_blank"><i
+                                    class="material-icons left">play_arrow</i>
+                                Try It
+                            </a>
+                            <a href="https://github.com/joonshakya/Pixel-Visualization" class="btn" target="_blank"><i
+                                    class="material-icons left">code</i>View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- ./row -->
+            <div class="row">
+
+                <!-- JS-Access -->
+                <div class="col s12 m8 offset-m2 l6 offset-l3">
+                    <div class="card hoverable">
+                        <div class="card-image" style="overflow: hidden; padding-top: 78.92%; position: relative;">
+                            <!-- Carousel-slider -->
+                            <div class="carousel carousel-slider"
+                                style="height: 100%; left: 0; position: absolute; top: 0; width: 100%;">
+                                <a class="carousel-item" href="#one!"><img src="./assets/images/QB01.PNG"></a>
+                                <a class="carousel-item" href="#two!"><img src="./assets/images/QB02.PNG"></a>
+                                <a class="carousel-item" href="#three!"><img src="./assets/images/QB03.PNG"></a>
+                                <a class="carousel-item" href="#four!"><img src="./assets/images/QB04.PNG"></a>
+                                <a class="carousel-item" href="#three!"><img src="./assets/images/QB05.PNG"></a>
+                                <a class="carousel-item" href="#four!"><img src="./assets/images/QB06.PNG"></a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h5>
+                                JS-Access (QBasic)
+                            </h5>
+                            <p>
+                                This is a QBasic app used to manage the records made by me using
+                                <strong>QB64</strong>
+                            </p>
+                        </div>
+                        <div class="card-action projects-card-link">
+                            <a href="https://github.com/joonshakya/JS-Access/" class="btn" target="_blank">
+                                Try - View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- ./row -->
+        </div> <!-- ./container -->
+    </section> <!-- ./projects -->
+
+    <!-- Section: Find Me -->
+    <section class="section section-follow white-text center-align">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Find Me</h4>
+                    <p>You can also find me in these places</p>
+                    <a href="https://www.youtube.com/channel/UCyqQYD6TlPSjasljdaY9eSA" target="_blank"
+                        class="white-text">
+                        <i class="fab fa-youtube fa-4x youtube-link hoverable"></i>
+                    </a>
+                    <a href="https://github.com/joonshakya/" target="_blank" class="white-text">
+                        <i class="fab fa-github fa-4x github-link hoverable"></i>
+                    </a>
+                    <a href="mailto:joonshakya07@gmail.com" class="white-text">
+                        <i class="far fa-envelope fa-4x gmail-link hoverable"></i>
+                    </a>
+                </div>
+            </div> <!-- ./row -->
+        </div> <!-- ./container -->
+    </section> <!-- ./findMe -->
+
+    <!-- Section: Contact -->
+    <section id="contact" class="section scrollspy">
+        <div class="container">
+            <div class="flow-text center-align">
+                <spam class="section-heading">Contact</spam>
+                <br><br>
+            </div>
+            <div class="row">
+
+                <!-- Contact Form -->
+                <div class="col s12 m8 offset-m2 l6 offset-l3">
+                    <div class="card-panel hoverable">
+                        <div class="flow-text">
+                            <p>I'd love to hear from you.</p>
+                        </div>
+                        <form action="https://formspree.io/xgewrkle" method="POST">
+                            <div class="input-field">
+                                <input type="text" id="name" name="name" required>
+                                <label class="active" for="name">Name</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="email" id="email" class="validate" name="email">
+                                <label class="active" for="email">Email (optional)</label>
+                            </div>
+                            <div class="input-field">
+                                <textarea name="message" id="textarea" class="materialize-textarea"
+                                    style="transition: all .2s;" required></textarea>
+                                <label class="active" for="textarea">Comments</label>
+                            </div>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Send
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div> <!-- ./row -->
+        </div> <!-- ./container -->
+    </section> <!-- ./contact -->
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Heading</h5>
+                    <p class="grey-text text-lighten-4">Description</p>
+                </div>
+            </div>
+        </div> -->
+        <div class="footer-copyright">
+            <div class="container footer-flex">
+                <a href="./index.html"><u>Copyright &copy; Joon Shakya</u></a>
+                <p>V1.1.0</p>
+                <a class="grey-text text-lighten-4 btn btn-small" href="#top"><i
+                        class="material-icons left">keyboard_arrow_up</i> Back to top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Import -->
+    <div class="importJS">
+
+        <!-- Materialize CSS -->
+        <link rel="stylesheet" href="./assets/css/materialize.min-1.0.0.css">
+
+        <!-- Materialize JS -->
+        <script type="text/javascript" src="./assets/js/materialize.min-1.0.0.js"></script>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+
+        <!-- Fonts -->
+        <!-- Material Icons -->
+        <link rel="stylesheet" href="./assets/fonts/Google Material Icons/set-font-family.css">
+        <!-- Product Sans -->
+        <link rel="stylesheet" href="./assets/fonts/Product Sans/set-font-family.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+            integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+        <!-- Others -->
+    </div>
+
+    <script>
+        var Loaded = false;
+
+        function initAfterPreloader() {
+            // Initialize particles-ja
+            setTimeout(function () {
+                let script1 = document.createElement("script");
+                script1.type = "text/javascript";
+                script1.src = "./assets/js/particles.min.js";
+                document.getElementsByClassName("importJS")[0].appendChild(script1);
+            }, 2000);
+            setTimeout(function () {
+                let script2 = document.createElement("script");
+                script2.type = "text/javascript";
+                script2.src = "./assets/js/particles-helper.js";
+                document.getElementsByClassName("importJS")[0].appendChild(script2);
+            }, 4500);
+
+            // Hide PreLoader
+            var loader = document.querySelector(".loader");
+            loader.className += " hidden";
+            var loaderCard = document.querySelector(".cardhold");
+            loaderCard.className += " go-up";
+            var navDown = document.querySelector("nav");
+            navDown.className += " shown";
+
+            // Initialize the animations
+            var animate = document.querySelectorAll(".wait");
+            for (var i = 0; i < animate.length; i++) {
+                animate[i].classList.add("animated");
+            }
+
+            Loaded = true;
+        }
+
+        console.log("4 Second Timer started");
+        setTimeout(function () {
+            if (!Loaded) {
+                initAfterPreloader();
+                console.log("Preloader hidden as the time limit exceeded");
+            }
+        }, 4000);
+
+        window.addEventListener("load", function () {
+            console.log("Page Load Completed");
+            if (!Loaded) {
+                initAfterPreloader();
+                console.log("Preloader hidden as page loaded completely");
+            }
+        });
+
+        // Finish loading the document
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Initialize Sidenav
+            var side_nav = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(side_nav, {});
+
+            // Initialize Scrollspy
+            const scrollSpy = document.querySelectorAll('.scrollspy');
+            M.ScrollSpy.init(scrollSpy, {
+                scrollOffset: 64
+            });
+
+            // Initialize Carousel-slider
+            var elems = document.querySelectorAll(".carousel");
+            var instances = M.Carousel.init(elems, {
+                fullWidth: true,
+                padding: 8,
+                indicators: true
+            });
+
+            // Auto slide the Carousel-slider
+            setInterval(function () {
+                var el = document.querySelector(".carousel");
+                var l = M.Carousel.getInstance(el);
+                l.next(1);
+            }, 4000);
+            clearInterval();
+
+        }); // Load document ends
+    </script>
+
+</body>
+
+</html>
