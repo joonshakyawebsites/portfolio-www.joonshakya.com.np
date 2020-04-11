@@ -204,7 +204,7 @@
                 <p class="intro-text-2 wait" style="line-height: 1.15;">Welcome to my website</p>
             </div>
         </div>
-        <div class="button-holder center-align wait" style="position: relative; bottom: 10vh;">
+        <div class="button-holder center-align wait" style="position: relative; bottom: 10vh; margin:auto">
             <a class="btn-flat waves-effect waves-light white-text" href="#projects">
                 <i class="large material-icons left">keyboard_arrow_down</i>
                 Check Out My Projects
@@ -238,12 +238,12 @@
                             </p>
                         </div>
                         <div class="card-action projects-card-link">
-                            <a href="./assets/p5/SHM/index.html" class="btn" target="_blank"><i
+                            <a href="./assets/p5/SHM/index.html" class="btn deep-purple lighten-1" target="_blank"><i
                                     class="material-icons left">play_arrow</i>
                                 Try It
                             </a>
-                            <a href="https://github.com/joonshakya/SHM" class="btn" target="_blank"><i
-                                    class="material-icons left">code</i>View Code</a>
+                            <a href="https://github.com/joonshakya/SHM" class="btn deep-purple lighten-1"
+                                target="_blank"><i class="material-icons left">code</i>View Code</a>
                         </div>
                     </div>
                 </div>
@@ -268,9 +268,10 @@
                         </div>
                         <div class="card-action projects-card-link">
                             <a href="https://www.youtube.com/channel/UCyqQYD6TlPSjasljdaY9eSA?sub_confirmation=1"
-                                class="btn" target="_blank"><i class="fab fa-youtube left"></i>SUBSCRIBE</a>
-                            <a href="https://github.com/joonshakya/FirstManimProject" class="btn" target="_blank"><i
-                                    class="material-icons left">code</i>View Code</a>
+                                class="btn deep-purple lighten-1" target="_blank"><i
+                                    class="fab fa-youtube left"></i>SUBSCRIBE</a>
+                            <a href="https://github.com/joonshakya/FirstManimProject" class="btn deep-purple lighten-1"
+                                target="_blank"><i class="material-icons left">code</i>View Code</a>
                         </div>
                     </div>
                 </div>
@@ -295,12 +296,12 @@
                             </p>
                         </div>
                         <div class="card-action projects-card-link">
-                            <a href="./assets/p5/refraction/index.html" class="btn" target="_blank"><i
-                                    class="material-icons left">play_arrow</i>
+                            <a href="./assets/p5/refraction/index.html" class="btn deep-purple lighten-1"
+                                target="_blank"><i class="material-icons left">play_arrow</i>
                                 Try It
                             </a>
-                            <a href="https://github.com/joonshakya/Refraction" class="btn" target="_blank"><i
-                                    class="material-icons left">code</i>View Code</a>
+                            <a href="https://github.com/joonshakya/Refraction" class="btn deep-purple lighten-1"
+                                target="_blank"><i class="material-icons left">code</i>View Code</a>
                         </div>
                     </div>
                 </div>
@@ -322,11 +323,12 @@
                             </p>
                         </div>
                         <div class="card-action projects-card-link">
-                            <a href="./assets/p5/pixel/index.html" class="btn" target="_blank"><i
+                            <a href="./assets/p5/pixel/index.html" class="btn deep-purple lighten-1" target="_blank"><i
                                     class="material-icons left">play_arrow</i>
                                 Try It
                             </a>
-                            <a href="https://github.com/joonshakya/Pixel-Visualization" class="btn" target="_blank"><i
+                            <a href="https://github.com/joonshakya/Pixel-Visualization"
+                                class="btn deep-purple lighten-1" target="_blank"><i
                                     class="material-icons left">code</i>View Code</a>
                         </div>
                     </div>
@@ -360,7 +362,8 @@
                             </p>
                         </div>
                         <div class="card-action projects-card-link">
-                            <a href="https://github.com/joonshakya/JS-Access/" class="btn" target="_blank">
+                            <a href="https://github.com/joonshakya/JS-Access/" class="btn deep-purple lighten-1"
+                                target="_blank">
                                 Try - View Code</a>
                         </div>
                     </div>
@@ -421,7 +424,8 @@
                                     style="transition: all .2s;" required></textarea>
                                 <label class="active" for="textarea">Comments</label>
                             </div>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Send
+                            <button class="btn deep-purple lighten-1 waves-effect waves-light" type="submit"
+                                name="action">Send
                                 <i class="material-icons right">send</i>
                             </button>
                         </form>
@@ -445,12 +449,30 @@
         <div class="footer-copyright">
             <div class="container footer-flex">
                 <a href="./index.html"><u>Copyright &copy; Joon Shakya</u></a>
-                <p>V1.1.0</p>
-                <a class="grey-text text-lighten-4 btn btn-small" href="#top"><i
-                        class="material-icons left">keyboard_arrow_up</i> Back to top</a>
+                <p>V1.1.1</p>
+                <div id="up-btn">
+                    <a href="#top"
+                        class="btn-floating btn-large waves-effect waves-light deep-purple lighten-1 hoverable">↑</a>
+                </div>
             </div>
         </div>
     </footer>
+
+
+    <script>
+        let upBtn = document.getElementById('up-btn');
+
+        let myScrollFunc = function () {
+            var y = window.scrollY;
+            if (y >= 200) {
+                upBtn.className = "fixed-action-btn shown";
+            } else {
+                upBtn.className = "fixed-action-btn";
+            }
+        };
+
+        window.addEventListener("scroll", myScrollFunc);
+    </script>
 
     <!-- Import -->
     <div class="importJS">

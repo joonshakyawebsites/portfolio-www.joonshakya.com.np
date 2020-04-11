@@ -1,87 +1,201 @@
-var rColorSlider;
-var gColorSlider;
-var bColorSlider;
-var pxWSlider;
+let rColorSlider;
+let gColorSlider;
+let bColorSlider;
+let pxWSlider;
+let pxTotalN;
+var landS;
+var refPxLen;
+var pxTotalCanvas;
+var pxGap;
 
 function setup() {
-  createCanvas(940, 600);
+  createCanvas(windowWidth, windowHeight);
+
   rColorSlider = createSlider(0, 100, 100, 1);
-  rColorSlider.style('width', '364px');
-  rColorSlider.position(width / 2 + 76, 12 + 65);
   gColorSlider = createSlider(0, 100, 100, 1);
-  gColorSlider.style('width', '364px');
-  gColorSlider.position(width / 2 + 76, 44 + 65);
   bColorSlider = createSlider(0, 100, 100, 1);
-  bColorSlider.style('width', '364px');
-  bColorSlider.position(width / 2 + 76, 76 + 65);
-  pxWSlider = createSlider(3, 120, 6, .1);
-  pxWSlider.style('width', '370px');
-  pxWSlider.position(150, 175);
+  pxLenSlider = createSlider(0.39, 2, 2, .01);
+
+  if (width > 1.125 * height) {
+    landS = true;
+    refPxLen = height / 5;
+    txtStd = height / 24;
+    pxTotalCanvas = height / 2;
+
+    rColorSlider.style('width', pxTotalCanvas + 'px');
+    rColorSlider.position(width / 2, txtStd * 4.3);
+    gColorSlider.style('width', pxTotalCanvas + 'px');
+    gColorSlider.position(width / 2, txtStd * 5.3);
+    bColorSlider.style('width', pxTotalCanvas + 'px');
+    bColorSlider.position(width / 2, txtStd * 6.3);
+    pxLenSlider.style('width', pxTotalCanvas + 'px');
+    pxLenSlider.position(width / 2, txtStd * 7.3);
+
+  } else if (height > 2.07 * width) {
+    refPxLen = width / 5;
+    txtStd = width / 15;
+    pxTotalCanvas = width - txtStd * 2;
+    offset = 0;
+
+    rColorSlider.style('width', width - txtStd * 2 + 'px');
+    rColorSlider.position(txtStd, txtStd * 4.8);
+    gColorSlider.style('width', width - txtStd * 2 + 'px');
+    gColorSlider.position(txtStd, txtStd * 6.8);
+    bColorSlider.style('width', width - txtStd * 2 + 'px');
+    bColorSlider.position(txtStd, txtStd * 8.8);
+    pxLenSlider.style('width', width - txtStd * 2 + 'px');
+    pxLenSlider.position(txtStd, txtStd * 10.8);
+  } else {
+    refPxLen = height * .09;
+    txtStd = height * .032;
+    pxTotalCanvas = height * .481 - txtStd * 2;
+    offset = (width - height * .481) / 2;
+
+    rColorSlider.style('width', width - txtStd * 2 - offset + 'px');
+    rColorSlider.position(txtStd + offset / 2, txtStd * 4.8);
+    gColorSlider.style('width', width - txtStd * 2 - offset + 'px');
+    gColorSlider.position(txtStd + offset / 2, txtStd * 6.8);
+    bColorSlider.style('width', width - txtStd * 2 - offset + 'px');
+    bColorSlider.position(txtStd + offset / 2, txtStd * 8.8);
+    pxLenSlider.style('width', width - txtStd * 2 - offset + 'px');
+    pxLenSlider.position(txtStd + offset / 2, txtStd * 10.8);
+  }
+
+  textAlign(RIGHT);
+  noStroke();
 }
 
 function draw() {
   background(51);
-  noStroke();
 
   rColor = rColorSlider.value() * 2.55;
   gColor = gColorSlider.value() * 2.55;
   bColor = bColorSlider.value() * 2.55;
-  pxW = pxWSlider.value();
-  pxGap = pxW / 3;
-  refPxW = 24;
-  refPxGap = 5;
+  pxLen = (pxLenSlider.value() * pxLenSlider.value()) / 4 * pxTotalCanvas;
+  // pxLen = map(pxLenSlider.value(), 0, 2, 9, pxTotalCanvas);
+  pxGap = pxLen * .01;
+  if (width > 1.125 * height) {
+    push();
+    fill(255);
+    textAlign(CENTER);
+    textSize(txtStd * 1.4);
+    text("Pixels", width / 2, txtStd * 1.75);
+    textSize(txtStd * 0.8);
+    text("V1.0.2 Coded by: Joon Shakya", width / 2, txtStd * 3.2);
+    translate(width / 2 - txtStd * 4, txtStd * 5);
+    textAlign(RIGHT);
+    text("Red", 0, 0);
+    text("Green", 0, txtStd * 1);
+    text("Blue", 0, txtStd * 2);
+    fill(255, 0, 0);
+    rect(-txtStd * 4, txtStd * -0.7, txtStd * .8, txtStd * .8);
+    fill(0, 255, 0);
+    rect(-txtStd * 4, txtStd * 0.3, txtStd * .8, txtStd * .8);
+    fill(0, 0, 255);
+    rect(-txtStd * 4, txtStd * 1.3, txtStd * .8, txtStd * .8);
+    fill(255);
+    text(rColorSlider.value() + "%", txtStd * 3, 0);
+    text(gColorSlider.value() + "%", txtStd * 3, txtStd * 1);
+    text(bColorSlider.value() + "%", txtStd * 3, txtStd * 2);
+    text("Size", 0, txtStd * 3);
+    pop();
 
-  fill(255);
-  textSize(48);
-  text("Pixels", width / 2.5, 52);
-  translate(68, 68);
-  textSize(24);
-  text("Made by: Joon Shakya", width / 1.6, -24);
-  text("Red", width / 3, 32);
-  text("Green", width / 3, 64);
-  text("Blue", width / 3, 96);
-  fill(255, 0, 0);
-  rect(width / 3.4, 10, 24, 24);
-  fill(0, 255, 0);
-  rect(width / 3.4, 42, 24, 24);
-  fill(0, 0, 255);
-  rect(width / 3.4, 74, 24, 24);
-  fill(255);
-  text(rColorSlider.value() + "%", width / 3 + 84, 32);
-  text(gColorSlider.value() + "%", width / 3 + 84, 64);
-  text(bColorSlider.value() + "%", width / 3 + 84, 96);
-  translate(-68, -68);
-
-  translate(32, 208);
-  fill(0);
-  rect(0, 0, refPxW * 3 + refPxGap * 4, refPxW * 3 + refPxGap * 4);
-  fill(rColor, 0, 0);
-  rect(refPxGap + (refPxW + refPxGap) * 0, refPxGap, refPxW, refPxW * 3 + refPxGap * 2);
-  fill(0, gColor, 0);
-  rect(refPxGap + (refPxW + refPxGap) * 1, refPxGap, refPxW, refPxW * 3 + refPxGap * 2);
-  fill(0, 0, bColor);
-  rect(refPxGap + (refPxW + refPxGap) * 2, refPxGap, refPxW, refPxW * 3 + refPxGap * 2);
-  stroke(255);
-  line(92 - 5, 5, 92 + 32, 0);
-  line(92 - 5, 92 - 5, 92 + 32, pxW * 3);
-  noStroke();
-  translate(516, 0);
-  fill(rColor, gColor, bColor);
-  rect(0, 0, 360, 360);
-  translate(-360 - 32, 0);
-  fill(0);
-  rect(0, 0, 360, 360);
-  for (var x = 0; x < 361 - pxW * 3; x = x + pxW * 3 + pxGap) {
-    for (var y = 0; y < 361 - pxW * 3; y = y + pxW * 3 + pxGap) {
-      fill(rColor, 0, 0);
-      rect(0, 0, pxW, pxW * 3);
-      fill(0, gColor, 0);
-      rect(pxW, 0, pxW, pxW * 3);
-      fill(0, 0, bColor);
-      rect((pxW) * 2, 0, pxW, pxW * 3);
-      translate(0, pxW * 3 + pxGap);
+    push();
+    translate(width / 2 - height / 3, pxTotalCanvas - txtStd * 2);
+    fill(0);
+    rect(0, 0, refPxLen, refPxLen);
+    showPixel(rColor, gColor, bColor, refPxLen, 5, 5);
+    translate(0, height / 3.5);
+    fill(rColor, gColor, bColor);
+    rect(0, 0, refPxLen, refPxLen);
+    pop();
+    pxTotalN = pxTotalCanvas / pxLen - 1;
+    pxTotalN = pxTotalN - pxTotalN % 2 + 1;
+    transX = (pxTotalCanvas - (pxLen * pxTotalN)) / 2;
+    transY = (pxTotalCanvas - (pxLen * pxTotalN)) / 2;
+    push();
+    translate(width * 3 / 4 - width / 4, pxTotalCanvas - txtStd * 2);
+    fill(0);
+    rect(0, 0, pxTotalCanvas, pxTotalCanvas);
+    translate(transX, transY);
+    for (x = 0; x < pxTotalN; x++) {
+      push();
+      for (y = 0; y < pxTotalN; y++) {
+        showPixel(rColor, gColor, bColor, pxLen, 0, pxGap);
+        translate(0, pxLen);
+      }
+      pop();
+      translate(pxLen, 0);
     }
-    translate(pxW * 3 + pxGap, -y);
+    pop();
+
+  } else {
+
+    push();
+    fill(255);
+    textAlign(CENTER);
+    textSize(txtStd * 1.4);
+    text("Pixels", width / 2, txtStd * 1.75);
+    textSize(txtStd * 0.8);
+    text("V 1.0.2 Coded by: Joon Shakya", width / 2, txtStd * 3.2);
+    translate(width / 3, txtStd * 5);
+    textAlign(RIGHT);
+    text("Red", 0, 0);
+    text("Green", 0, txtStd * 2);
+    text("Blue", 0, txtStd * 4);
+    fill(255, 0, 0);
+    rect(-txtStd * 4, txtStd * -0.7, txtStd * .8, txtStd * .8);
+    fill(0, 255, 0);
+    rect(-txtStd * 4, txtStd * 1.3, txtStd * .8, txtStd * .8);
+    fill(0, 0, 255);
+    rect(-txtStd * 4, txtStd * 3.3, txtStd * .8, txtStd * .8);
+    fill(255);
+    text(rColorSlider.value() + "%", txtStd * 3, 0);
+    text(gColorSlider.value() + "%", txtStd * 3, txtStd * 2);
+    text(bColorSlider.value() + "%", txtStd * 3, txtStd * 4);
+    text("Size", 0, txtStd * 6);
+    pop();
+
+    push();
+    translate(width / 2 + offset - (width / 2 - txtStd), pxTotalCanvas);
+    fill(0);
+    rect(0, 0, refPxLen, refPxLen);
+    showPixel(rColor, gColor, bColor, refPxLen, 5, 5);
+    push();
+    translate(width - refPxLen - txtStd * 2 - offset * 2, 0);
+    fill(rColor, gColor, bColor);
+    rect(0, 0, refPxLen, refPxLen);
+    pop();
+    pxTotalN = pxTotalCanvas / pxLen - 1;
+    pxTotalN = pxTotalN - pxTotalN % 2 + 1;
+    transX = (pxTotalCanvas - (pxLen * pxTotalN)) / 2;
+    transY = (pxTotalCanvas - (pxLen * pxTotalN)) / 2;
+    translate(0, refPxLen + txtStd);
+    fill(0);
+    rect(0, 0, pxTotalCanvas, pxTotalCanvas);
+    translate(transX, transY);
+    for (x = 0; x < pxTotalN; x++) {
+      push();
+      for (y = 0; y < pxTotalN; y++) {
+        showPixel(rColor, gColor, bColor, pxLen, 0, pxGap);
+        translate(0, pxLen);
+      }
+      pop();
+      translate(pxLen, 0);
+    }
+    pop();
   }
   // end of draw()
+}
+
+
+function showPixel(r, g, b, len, inGap, outGap) {
+  pWidth = (len - inGap * 2 - outGap * 2) / 3;
+  pHeight = len - outGap * 2;
+  fill(r, 0, 0);
+  rect(outGap, outGap, pWidth, pHeight);
+  fill(0, g, 0);
+  rect(pWidth + inGap + outGap, outGap, pWidth, pHeight);
+  fill(0, 0, b);
+  rect(outGap + 2 * inGap + 2 * pWidth, outGap, pWidth, pHeight);
 }

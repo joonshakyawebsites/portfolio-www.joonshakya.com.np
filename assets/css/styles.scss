@@ -4,6 +4,23 @@ body {
     font-family: 'Product Sans', sans-serif;
 }
 
+.btn-floating {
+    font-family: monospace, monospace, Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+
+#up-btn {
+    transition: all .2s;
+    transform: scale(0);
+}
+
+#up-btn.shown {
+    transform: scale(1);
+}
+
 .cardhold.go-up {
     animation: move-up .45s ease-in;
     animation-fill-mode: forwards;

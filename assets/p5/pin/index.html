@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#dddddd">
+  <title>UserID Generator</title>
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="UserID Generator" />
+  <meta property="og:description" content="This is a PIN Generator" />
+  <meta property="og:image" content="https://www.joonshakya.com.np/assets/p5/pin/thumbnail.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:url" content="https://www.joonshakya.com.np/assets/p5/pin/index.html" />
+  <meta property="fb:app_id" content="1265498347173300" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="icon" type="image/gif" href="animated_favicon1.gif" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <script language="javascript" type="text/javascript" src="./js/p5/p5.min-master-5-21-19.js"></script>
+  <script language="javascript" type="text/javascript" src="./js/p5/p5.dom.min.js"></script>
+  <!-- 
+  <script language="javascript" type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+  <script language="javascript" type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.dom.min.js"></script> -->
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="main-heading">UserID Generation</div>
+
+
+    <div class="heading">Instructions</div>
+    <div class="description">
+      The Veltech teams has been assigned the task of creating user ids for all the students for
+      attending online exam. Also the Veltech has designed a process for generating the user id using the students first
+      name, last name, district PIN code and a number N. The process defined by Veltech is as below:<br>
+      <br>Step 1: Compare the length of first name and last name of the student. The one that is shorter will be called
+      Smaller name and the one
+      that is longer will be called the Longer name. If both first name and last name are the equal length, then the
+      name that appears earlier in alphabetical order will be called Smaller name and the name that appears later in
+      alphabetical order will be called the Longer name.<br>
+      <br>Step 2: The user id should be generated as below:<br>
+      &nbsp;Last letter of smaller name + Entire word of Longer name + Digit at position N in the PIN when traversing
+      PIN from left to right + Digit at position N in the PIN when traversing the PIN from right to left.<br>
+      <br>Step 3: Toggle the alphabets of the user id generated in Step-2 i.e upper-case alphabets should become
+      lowercase
+      and lower-case alphabets should
+      become upper-case.<br>
+      <br>Input Format: Input1 is First_Name; Input2 is Last_Name; Input3 is PIN; Input4 is the number N
+      <br>Constraint: The value of N (input 4) will always be less than or equal to the number of digits in the PIN.
+    </div>
+
+    <div class="heading">Input</div>
+    <div class="input-holder">
+      <label for="fname">First name:</label>
+      <input type="text" name="fname" autofocus id="inputFN">
+    </div>
+    <div class="input-holder">
+      <label for="lname">Last name:</label>
+      <input type="text" name="lname" id="inputLN">
+    </div>
+    <div class="input-holder">
+      <label for="PIN">PIN:</label>
+      <input type="number" name="PIN" id="inputPIN">
+    </div>
+    <div class="input-holder">
+      <label for="N">Number N:</label>
+      <input type="number" name="N" id="inputN">
+    </div>
+
+    <div class="heading">Given</div>
+    <div class="given">
+      <table>
+        <tr>
+          <th>
+            Field
+          </th>
+          <th>
+            Value
+          </th>
+        </tr>
+        <tr>
+          <td>
+            First name:
+          </td>
+          <td>
+            <span id="valFN"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Last name:
+          </td>
+          <td>
+            <span id="valLN"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PIN number:
+          </td>
+          <td>
+            <span id="valPIN"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Number N:
+          </td>
+          <td>
+            <span id="valN"></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="heading">Generation</div>
+    <div class="process">
+      <table>
+        <tr>
+          <th>
+            Field
+          </th>
+          <th>
+            Value
+          </th>
+        </tr>
+        <tr>
+          <td>
+            Smaller word:
+          </td>
+          <td>
+            <span id="valSW"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Larger word:
+          </td>
+          <td>
+            <span id="valLW"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Last letter of smaller word:
+          </td>
+          <td>
+            <span id="valSWN"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            N<sup>th</sup> digit of PIN:
+          </td>
+          <td>
+            <span id="valnOfPIN"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            N<sup>th</sup> last digit of PIN:
+          </td>
+          <td>
+            <span id="valnlOfPIN"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            PIN before toggling alphabets:
+          </td>
+          <td>
+            <span id="valsemiPIN"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>Final PIN</b> after toggling alphabets:
+          </td>
+          <td>
+            <span id="valfinalPIN"></span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="madeBy">
+      Made by <a href="https://www.joonshakya.com.np/" target="_blank">Joon Shakya</a> v1.0.0
+    </div>
+  </div>
+
+  <script>
+    function id(id) {
+      return document.getElementById(id);
+    }
+
+    const firstNameIn = id("inputFN");
+    const lastNameIn = id("inputLN");
+    const pinIn = id("inputPIN");
+    const nIn = id("inputN");
+
+    const firstNameOut = id("valFN");
+    const lastNameOut = id("valLN");
+    const pinOut = id("valPIN");
+    const nOut = id("valN");
+
+    const smallWOut = id("valSW");
+    const largeWOut = id("valLW");
+    const smallWnOut = id("valSWN");
+    const nOfpinOut = id("valnOfPIN");
+    const nlOfpinOut = id("valnlOfPIN");
+
+    const semiPINOut = id("valsemiPIN");
+    const finalPINOut = id("valfinalPIN");
+
+    let pFirstN;
+    let pLastN;
+    let pPin;
+    let pN;
+
+    let change = true;
+
+    function setup() {
+      noCanvas();
+    }
+
+    function draw() {
+      let sw = undefined;
+      let firstN = firstNameIn.value;
+      let lastN = lastNameIn.value;
+      let pin = pinIn.value + "";
+      let n = nIn.value;
+
+      if (firstN == pFirstN && pLastN == lastN && pin == pPin && pN == n) {
+        change = false;
+      } else {
+        pFirstN = firstN;
+        pLastN = lastN;
+        pPin = pin;
+        pN = n;
+        change = true;
+      }
+
+      if (change) {
+        if (firstN) {
+          firstN = firstN.trim().split(" ")[0];
+          firstN = firstN.charAt(0).toUpperCase() + firstN.slice(1).toLowerCase();
+          firstNameOut.innerHTML = firstN;
+        } else {
+          smallWOut.innerHTML = "";
+          firstNameOut.innerHTML = "";
+          largeWOut.innerHTML = "";
+          smallWnOut.innerHTML = "";
+          nOfpinOut.innerHTML = "";
+          nlOfpinOut.innerHTML = "";
+          semiPINOut.innerHTML = "";
+          finalPINOut.innerHTML = "";
+        }
+
+        if (lastN) {
+          lastN = lastN.trim().split(" ").slice(-1)[0];
+          lastN = lastN.charAt(0).toUpperCase() + lastN.slice(1).toLowerCase();
+          lastNameOut.innerHTML = lastN;
+        } else {
+          smallWOut.innerHTML = "";
+          lastNameOut.innerHTML = "";
+          largeWOut.innerHTML = "";
+          smallWnOut.innerHTML = "";
+          nOfpinOut.innerHTML = "";
+          nlOfpinOut.innerHTML = "";
+          semiPINOut.innerHTML = "";
+          finalPINOut.innerHTML = "";
+        }
+
+        if (firstN && lastN) {
+          if (firstN.length < lastN.length) {
+            sw = firstN;
+            lw = lastN;
+          } else if (firstN.length > lastN.length) {
+            sw = lastN;
+            lw = firstN;
+          } else {
+            for (let i = 0; i < firstN.length; i++) {
+              if (firstN.charCodeAt(i) < lastN.charCodeAt(i)) {
+                sw = firstN;
+                lw = lastN;
+                break;
+              } else if (firstN.charCodeAt(i) > lastN.charCodeAt(i)) {
+                sw = lastN;
+                lw = firstN;
+                break;
+              }
+            }
+          }
+          if (!sw) {
+            smallWOut.innerHTML = "Please enter a different first and last name";
+            largeWOut.innerHTML = "";
+            smallWnOut.innerHTML = "";
+            nOfpinOut.innerHTML = "";
+            nlOfpinOut.innerHTML = "";
+            semiPINOut.innerHTML = "";
+            finalPINOut.innerHTML = "";
+          } else {
+            swn = sw[sw.length - 1];
+            smallWOut.innerHTML = sw;
+            largeWOut.innerHTML = lw;
+            smallWnOut.innerHTML = swn;
+          }
+        }
+
+        if (pin) {
+          if (pin < 1) {
+            pinIn.value = 1;
+            pin = 1;
+          }
+          pinOut.innerHTML = pin;
+        } else {
+          pinOut.innerHTML = "";
+        }
+
+        if (n) {
+          if (n < 1) {
+            nIn.value = 1;
+            n = 1;
+          }
+          nOut.innerHTML = n;
+        } else {
+          nOut.innerHTML = "";
+        }
+
+        if (pin && n) {
+          if (n > pin.length) {
+            nIn.value = pin.length;
+            n = pin.length;
+          }
+          nOfpin = pin[n - 1];
+          nlOfpin = pin[pin.length - n];
+          nOfpinOut.innerHTML = nOfpin;
+          nlOfpinOut.innerHTML = nlOfpin;
+        } else {
+          nOfpinOut.innerHTML = "";
+          nlOfpinOut.innerHTML = "";
+          semiPINOut.innerHTML = "";
+          finalPINOut.innerHTML = "";
+        }
+
+        if (firstN && lastN && pin && n && sw) {
+          semiPIN = swn + lw + nOfpin + nlOfpin;
+          finalPIN = semiPIN.replace(/\w{1}/g, function (val) {
+            return val === val.toLowerCase() ? val.toUpperCase() : val.toLowerCase();
+          });
+          semiPINOut.innerHTML = semiPIN;
+          finalPINOut.innerHTML = finalPIN;
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>
