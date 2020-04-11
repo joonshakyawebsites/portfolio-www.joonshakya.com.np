@@ -437,6 +437,9 @@
     </section> <!-- ./contact -->
 
     <!-- Footer -->
+    <div id="up-btn">
+        <a href="#top" class="btn-floating btn-large waves-effect waves-light deep-purple lighten-1 hoverable">↑</a>
+    </div>
     <footer class="page-footer">
         <!-- <div class="container">
             <div class="row">
@@ -450,10 +453,6 @@
             <div class="container footer-flex">
                 <a href="./index.html"><u>Copyright &copy; Joon Shakya</u></a>
                 <p>V1.1.1</p>
-                <div id="up-btn">
-                    <a href="#top"
-                        class="btn-floating btn-large waves-effect waves-light deep-purple lighten-1 hoverable">↑</a>
-                </div>
             </div>
         </div>
     </footer>
@@ -461,12 +460,16 @@
 
     <script>
         let upBtn = document.getElementById('up-btn');
+        let myProjevts = document.getElementById('projects');
+        let distanceToTop = myProjevts.offsetTop;
 
         let myScrollFunc = function () {
             var y = window.scrollY;
-            if (y >= 200) {
+            if (y >= distanceToTop) {
+                console.log(distanceToTop);
                 upBtn.className = "fixed-action-btn shown";
             } else {
+                console.log(distanceToTop);
                 upBtn.className = "fixed-action-btn";
             }
         };
