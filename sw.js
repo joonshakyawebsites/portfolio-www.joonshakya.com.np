@@ -4,7 +4,8 @@ const staticAssets = [
   './assets/',
   './',
   './Joon.png',
-  './index.html'
+  './index.html',
+  './manifest.json'
 ];
 
 self.addEventListener('install', async event => {
