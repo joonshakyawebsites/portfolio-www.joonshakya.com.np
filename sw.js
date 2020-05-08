@@ -1,7 +1,12 @@
 
 const cacheName = 'Joon Shakya\'s Website\'s Cache';
 const staticAssets = [
-  './assets/',
+  './assets/css/',
+  './assets/favicon/',
+  './assets/fonts/',
+  './assets/images/',
+  './assets/js/',
+  './assets/splashscreens/',
   './',
   './Joon.png',
   './index.html',
