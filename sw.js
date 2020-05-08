@@ -2,7 +2,6 @@
 const cacheName = 'pwa-conf-v1';
 const staticAssets = [
   './assets/',
-  './assets/p5/',
   './',
   './Joon.png',
   './index.html',
