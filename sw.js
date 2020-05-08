@@ -1,5 +1,5 @@
 
-const cacheName = 'pwa-conf-v1';
+const cacheName = 'Joon Shakya\'s Website\'s Cache';
 const staticAssets = [
   './assets/',
   './',
