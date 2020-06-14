@@ -1,17 +1,14 @@
 function water(array) {
     var waters = 0;
-    var from = 0;
-    var result = "";
-    var to = 0;
-    for(let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         if (!(array[i] >= 0)) {
-            return "Please enter a whole number value"
+            return "Please enter a whole number value";
         }
     }
-    for(let i = 0; i < array.length - 1; i++) {
+    for (let i = 0; i < array.length - 1; i++) {
         from = i;
         to = i + 1;
-        for(var j = i + 1; j < array.length; j++) {
+        for (let j = i + 1; j < array.length; j++) {
             if (array[j] >= array[from]) {
                 to = j;
                 break;
@@ -22,15 +19,16 @@ function water(array) {
         }
         // console.log(from + " " + to);
         min = Math.min(array[from], array[to]);
-        for(let k = from; k < to; k++) {
-            if (min > array[k+1]) {
-                waters += min - array[k+1];
+        for (let j = from; j < to; j++) {
+            if (min > array[j+1]) {
+                waters += min - array[j+1];
                 // console.log(min - array[k+1]);
             }
         }
         i = to - 1;
     }
     result = "Input:  [" + array + "]" + " <br>\nOutput: " + waters
+    // console.log(result);
     return result;
 }
 
