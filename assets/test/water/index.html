@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#dddddd">
+  <title>Water Block Counter - Joon's logic</title>
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="UserID Generator" />
+  <meta property="og:description" content="This is a PIN Generator" />
+  <meta property="og:image" content="https://www.joonshakya.com.np/assets/test/water/img.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:url" content="https://www.joonshakya.com.np/assets/test/water/index.html" />
+  <meta property="fb:app_id" content="1265498347173300" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="icon" type="image/gif" href="animated_favicon1.gif" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <script language="javascript" type="text/javascript" src="Joon's logic.js"></script>
+ 
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="main-heading">Water Block Counter</div>
+
+    <div class="heading">Instructions</div>
+    <div class="description">
+      <img src="./img.png" alt="instructions" style="max-height:50vh; max-width: 50vw; margin: auto">
+    </div>
+
+    <div class="heading">Input</div>
+    <div class="description">
+      Type the list of whole numbers separated by a comma:<br><br>
+      <div>
+        <textarea type="text" autofocus id="input" oninput="findWater();" placeholder="Type your input"></textarea>
+      </div>
+    </div>
+
+    <div class="heading">Result</div>
+    <div id="result" class="description">
+
+    </div>
+    <div class="madeBy">
+      Made by <a href="https://www.joonshakya.com.np/" target="_blank">Joon Shakya</a> v1.0.0
+    </div>
+  </div>
+  <script>
+    input = document.getElementById('input');
+    result = document.getElementById('result');
+    function findWater() {
+      myString = input.value;
+      splitArray = myString.split(/\s*,\s*/g).map(d => Number(d) || d);
+      result.innerHTML = water(splitArray)
+    }
+  </script>
+</body>
+
+</html>
