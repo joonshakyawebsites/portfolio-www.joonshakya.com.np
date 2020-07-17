@@ -566,7 +566,7 @@ nav .sidenav-trigger:hover {
 }
 
 .find-me-link {
-  margin: 0 1em;
+  margin: 0 .8rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
