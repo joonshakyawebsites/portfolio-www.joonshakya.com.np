@@ -3,6 +3,7 @@
     font-style: normal;
     font-weight: normal;
     src: local('Product Sans'), url('ProductSans.woff') format('woff');
+    font-display: swap;
 }
 
 @font-face {
@@ -10,4 +11,5 @@
     font-style: normal;
     font-weight: normal;
     src: local('Product Sans Bold'), url('ProductSans-Bold.woff') format('woff');
+    font-display: swap;
 }

@@ -394,6 +394,17 @@ nav .sidenav-trigger:hover {
     background: #fff;
 }
 
+.find-me-link-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.find-me-link {
+    margin: 0 1em;
+    display: flex;
+    flex-direction: column;
+}
+
 #contact {
     margin-bottom: 10vh;
 }
@@ -424,4 +435,8 @@ nav .sidenav-trigger:hover {
 .footer-flex>* {
     margin: 8px;
     color: #fff;
+}
+
+video {
+    width: 100%;
 }
