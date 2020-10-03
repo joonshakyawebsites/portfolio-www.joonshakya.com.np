@@ -11,7 +11,6 @@ function setup() {
 
   forthHeight = height / 4;
   txtStd = height / 18;
-  widthBy1000 = width / 1000;
 
   textSize(txtStd * 0.9);
   textAlign(CENTER, CENTER);
@@ -33,12 +32,12 @@ function draw() {
   stroke(255);
   strokeWeight(4);
   noFill();
-  speedVal += parseFloat(speed.value) * widthBy1000;
+  speedVal += parseFloat(speed.value)
   for (let i = 0; i < width; i++) {
     begin = speedVal % width * (5 / 4) - width / 4;
     end = begin + width / 6;
     if (i >= begin && i <= end) {
-      bulge[i] = - min(width / 10, height / 10) * sin(map(i, begin, end, 0, PI))**2;
+      bulge[i] = - height / 12 * sin(map(i, begin, end, 0, PI))**2;
     } else {
       bulge[i] = 0;
     }
@@ -63,7 +62,7 @@ function draw() {
     if (secondUp) {
       zB *= -1;
     }
-    vertex(i, height * 3 / 7 + 8 + zB);
+    vertex(i, height * 2 / 6 + 8 + zB);
   }
   endShape();
   beginShape();
@@ -81,7 +80,7 @@ function draw() {
       zB *= -1;
     }
     zC = zA + zB;
-    vertex(i, height * 3 / 4 + zC);
+    vertex(i, height * 2 / 3 + zC);
   }
   endShape();
   pop();
