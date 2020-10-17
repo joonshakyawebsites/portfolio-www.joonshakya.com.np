@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "joonshakya.com.np",
+  "Id": "ead77d26-5142-4b16-8054-50df3d9df9dc"
+}
